@@ -24,9 +24,20 @@ const isAuth = async (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
-  if (req.user.rol === 'admin') {
-    next();
-  } else {
+  try {
+    const token = req.headers.authorization;
+    const parsedToken = token.replace('Bearer ', '');
+
+    const { id } = verifyJwt(parsedToken);
+
+    const user = await User.findById(id);
+
+    if (user.rol === 'admin') {
+      user.password = null;
+      req.user = user;
+      next();
+    }
+  } catch (error) {
     return res.status(401).json('No tienes permisos de administrador');
   }
 };

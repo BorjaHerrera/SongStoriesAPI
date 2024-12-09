@@ -2,9 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const { connectDB } = require('./src/confi/db');
-/*const Song = require('./src/api/models/songs');
-const Story = require('./src/api/models/stories');
-const User = require('./src/api/models/users');*/
+
 const mainRouter = require('./src/api/routes/main');
 const app = express();
 

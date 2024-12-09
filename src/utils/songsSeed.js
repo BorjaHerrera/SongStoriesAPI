@@ -19,6 +19,6 @@ mongoose
     console.log('Se ha incluido la coleccción Song del array');
   })
   .finally(() => {
-    mongoose.disconnect;
+    mongoose.disconnect();
     console.log('Desconectado');
   });
