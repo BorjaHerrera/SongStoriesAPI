@@ -7,7 +7,8 @@ Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre ambo
 ### Canciones y Artistas
 •	Cada canción se identifica por su combinación única de nombre y artista.
 •	Solo los administradores pueden aprobar canciones antes de hacerlas públicas.
-Historias
+
+### Historias
 •	Están vinculadas tanto a la canción como al usuario creador.
 Gestión de Usuarios y Roles
 •	Usuarios (user) y Administradores (admin).
@@ -101,34 +102,40 @@ npm start
  
 ### Endpoints ### 
 
-### Users
-Método	  Endpoint	                Descripción	                                Autenticación
-POST	   /users/register	          Registro de usuario.	                       No
-POST	   /users/login	              Inicio de sesión.                            No
-GET	     /users/	                  Lista todos los usuarios.	                   Admin
-PUT  	   /users/change-user/:id	    Cambia el rol de un usuario.                 Admin
-DELETE 	 /users/:id	                Elimina un usuario.	                         Auth + Propio/Admin
+#### Users
 
-### Songs
-
-Método	  Endpoint	              Descripción	                                  Autenticación
-GET	    /songs/	                  Lista todas las canciones verificadas.            	No
-GET	    /songs/not-verified	      Lista canciones pendientes de verificación.	        Admin
-GET	    /songs/:id	              Muestra detalles de una canción por ID.	            No
-GET	    /songs/cancion/:name	    Busca canciones por nombre.                        	No
-GET	    /songs/artista/:artist	  Busca canciones por artista.                      	No
-POST	  /songs/	                  Crea una nueva canción.	                            Auth
-PUT	    /songs/:id	              Edita una canción.	                                Auth + Propio/Admin
-DELETE	/songs/:id	              Elimina una canción.	                              Auth + Propio/Admin
-
-### Stories	
+| Método | Endpoint                      | Descripción                                   | Autenticación       |
+|--------|-------------------------------|-----------------------------------------------|---------------------|
+| POST   | /users/register               | Registro de usuario.                          | No                  |
+| POST   | /users/login                  | Inicio de sesión.                             | No                  |
+| GET    | /users/                       | Lista todos los usuarios.                     | Admin               |
+| PUT    | /users/change-user/:id        | Cambia el rol de un usuario.                  | Admin               |
+| DELETE | /users/:id                    | Elimina un usuario.                           | Auth + Propio/Admin |
 
 
-Método	    Endpoint        	      Descripción	                                      Autenticación
-POST	  /stories/	                  Crea una nueva historia.	                        Auth
-PUT	    /stories/:id              	Edita una historia.	                              Auth + Propio/Admin
-DELETE	/stories/:id	              Elimina una historia.	                            Auth + Propio/Admin
-GET	    /stories/usuarios/:user    	Muestra historias creadas por un usuario.	        No
+#### Songs
+
+| Método | Endpoint                      | Descripción                                    | Autenticación       |
+|--------|-------------------------------|------------------------------------------------|---------------------|
+| GET    | /songs/                       | Lista todas las canciones verificadas.         | No                  |
+| GET    | /songs/not-verified           | Lista canciones pendientes de verificación.    | Admin               |
+| GET    | /songs/:id                    | Muestra detalles de una canción por ID.        | No                  |
+| GET    | /songs/cancion/:name          | Busca canciones por nombre.                    | No                  |
+| GET    | /songs/artista/:artist        | Busca canciones por artista.                   | No                  |
+| POST   | /songs/                       | Crea una nueva canción.                        | Auth                |
+| PUT    | /songs/:id                    | Edita una canción.                             | Auth + Propio/Admin |
+| DELETE | /songs/:id                    | Elimina una canción.                           | Auth + Propio/Admin |
+
+
+#### Stories
+
+| Método | Endpoint                      | Descripción                                    | Autenticación       |
+|--------|-------------------------------|------------------------------------------------|---------------------|
+| POST   | /stories/                     | Crea una nueva historia.                       | Auth                |
+| PUT    | /stories/:id                  | Edita una historia.                            | Auth + Propio/Admin |
+| DELETE | /stories/:id                  | Elimina una historia.                          | Auth + Propio/Admin |
+| GET    | /stories/usuarios/:user       | Muestra historias creadas por un usuario.      | No                  |
+
 
  
 ### Roles y Permisos ###
